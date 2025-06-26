@@ -91,6 +91,7 @@
         |-- loginForm.tsx
         |-- logoutForm.tsx
         |-- navbar.tsx
+        |-- navbarClient.tsx
         |-- signupForm.tsx
     |-- dbConfig
         |-- dbConfig.ts
