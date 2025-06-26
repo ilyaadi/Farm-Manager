@@ -45,7 +45,7 @@ const FruitEditForm = ({ fruitId }: { fruitId: string }) => {
     setSuccess(null);
 
     try {
-      const response = await fetch(`/api/users/expenseEdit?id=${fruitId}`, {
+      const response = await fetch(`/api/users/fruitEdit?id=${fruitId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
