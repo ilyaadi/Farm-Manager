@@ -7,3 +7,5 @@ const LogoutForm = () => {
         </form>
     )
 }
+
+export default LogoutForm;
