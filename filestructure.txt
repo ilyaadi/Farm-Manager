@@ -1,0 +1,110 @@
+|-- .env
+|-- .eslintrc.json
+|-- .gitattributes
+|-- .gitignore
+|-- .vercel
+    |-- .env.preview.local
+    |-- output
+        |-- builds.json
+        |-- config.json
+    |-- project.json
+    |-- README.txt
+|-- next-env.d.ts
+|-- next.config.mjs
+|-- package-lock.json
+|-- package.json
+|-- postcss.config.js
+|-- postcss.config.mjs
+|-- public
+    |-- next.svg
+    |-- vercel.svg
+|-- README.md
+|-- src
+    |-- actions.ts
+    |-- app
+        |-- api
+            |-- users
+                |-- expenseEdit
+                    |-- route.ts
+                |-- expenseEntry
+                    |-- route.ts
+                |-- expenseReport
+                    |-- route.ts
+                |-- fruitEdit
+                    |-- route.ts
+                |-- fruitEntry
+                    |-- route.ts
+                |-- fruitReport
+                    |-- route.ts
+                |-- labourEdit
+                    |-- [id]
+                        |-- route.ts
+                |-- labourManagement
+                    |-- route.ts
+                |-- labourReport
+                    |-- route.ts
+                |-- login
+                    |-- route.ts
+                |-- signup
+                    |-- route.ts
+        |-- expenseEdit
+            |-- [id]
+                |-- page.tsx
+        |-- expenseEntry
+            |-- page.tsx
+        |-- expenseReport
+            |-- page.tsx
+        |-- favicon.ico
+        |-- fruitEdit
+            |-- page.tsx
+        |-- fruitEntry
+            |-- page.tsx
+        |-- fruitReport
+            |-- page.tsx
+        |-- globals.css
+        |-- labourEdit
+            |-- [id]
+                |-- page.tsx
+        |-- labourManagement
+            |-- page.tsx
+        |-- labourReport
+            |-- page.tsx
+        |-- layout.tsx
+        |-- login
+            |-- page.tsx
+        |-- main
+            |-- page.tsx
+        |-- page.tsx
+        |-- signup
+            |-- page.tsx
+    |-- components
+        |-- ExpenseEditForm.tsx
+        |-- ExpenseEntryForm.tsx
+        |-- ExpenseReportForm.tsx
+        |-- FruitEditForm.tsx
+        |-- FruitEntryForm.tsx
+        |-- FruitReportForm.tsx
+        |-- HomePageForm.tsx
+        |-- LabourEditForm.tsx
+        |-- LabourManagementForm.tsx
+        |-- LabourReportForm.tsx
+        |-- loginForm.tsx
+        |-- logoutForm.tsx
+        |-- navbar.tsx
+        |-- signupForm.tsx
+    |-- dbConfig
+        |-- dbConfig.ts
+    |-- helpers
+        |-- getDataFromToken.ts
+    |-- images
+        |-- DragonFarm.jpeg
+    |-- jwtTokenControl.js
+    |-- lib.ts
+    |-- models
+        |-- expense.ts
+        |-- fruit.ts
+        |-- labour.ts
+        |-- userModel.ts
+|-- tailwind.config.js
+|-- tailwind.config.ts
+|-- tsconfig.json

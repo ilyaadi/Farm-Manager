@@ -1,0 +1,328 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #121212 0%, #232526 100%);
+  color: #E0E0E0;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Links */
+a {
+  color: #BB86FC;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+a:hover {
+  background: #2a223a;
+  text-decoration: underline;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 48px;
+  width: 100%;
+  max-width: 700px;         /* Looks better on desktop, adjust as needed */
+  margin: 24px auto 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(31,27,36,0.97);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  border: 1.5px solid #28223a;
+  border-radius: 16px;
+  box-sizing: border-box;
+  transition: max-width 0.3s, padding 0.3s;
+}
+
+/* Responsive: shrink nav box and padding on tablets */
+@media (max-width: 900px) {
+  nav {
+    max-width: 98vw;
+    padding: 0 8px;
+    gap: 8px;
+  }
+}
+
+/* Responsive: shrink nav box, padding, and gap on mobile */
+@media (max-width: 600px) {
+  nav {
+    max-width: 99vw;
+    padding: 0 2vw;
+    gap: 4px;
+    border-radius: 10px;
+  }
+  nav a {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+nav a {
+  padding: 8px 18px;
+  font-size: 13px;
+  border-radius: 8px;
+  color: #BB86FC;
+  font-weight: 1000;
+  letter-spacing: 0.5px;
+  transition: 
+    background 0.18s,
+    color 0.18s,
+    box-shadow 0.18s;
+  box-shadow: 0 1px 4px rgba(187,134,252,0.04);
+  display: inline-block;
+}
+
+nav a:hover, nav a.active {
+  background: #2a223a;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(187,134,252,0.12);
+  text-decoration: none;
+}
+/* Container Styles */
+.container, .reports-container, .card {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 24px;
+  background-color: #1F1B24;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.7s;
+  
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px);}
+  to { opacity: 1; transform: none;}
+}
+
+
+/* Form Inputs */
+input, select, textarea {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #BB86FC;
+  margin-bottom: 20px;
+  background-color: #232526;
+  color: #E0E0E0;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #3700B3;
+  outline: 2px solid #BB86FC;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #BB86FC33;
+}
+
+/* Button Styling */
+button, .submit-button, .filter-button {
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 6px;
+  background-color: #BB86FC;
+  color: #FFFFFF;
+  margin-top: 8px;
+  box-shadow: 0 2px 8px rgba(187,134,252,0.15);
+  transition: background 0.3s, transform 0.2s;
+}
+button:hover, .submit-button:hover, .filter-button:hover {
+  background-color: #3700B3;
+  transform: scale(1.04);
+}
+
+/* Special Buttons */
+.delete-button {
+  background-color: #FF1744;
+  margin-top: 10px;
+}
+.delete-button:hover {
+  background-color: #D32F2F;
+}
+
+/* Error and Success Messages */
+.error-message {
+  color: #FF1744;
+  text-align: center;
+  margin-top: 10px;
+}
+.success-message {
+  color: #4CAF50;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Table Styling */
+table, .reports-table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: auto;
+  font-size: 15px;
+  background: #232526;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  min-width: 300px;
+}
+th, td {
+  padding: 14px;
+  border: 1px solid #BB86FC;
+  text-align: center;
+}
+th {
+  background-color: #1F1B24;
+  color: #FFFFFF;
+}
+tr:hover {
+  background-color: #333;
+}
+.no-data {
+  text-align: center;
+  color: #777;
+}
+.edit-link {
+  color: #4aa3ff;
+  cursor: pointer;
+}
+.edit-link:hover {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+/* Filter Section */
+.filter-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+  width: 100%;
+  max-width: 900px;
+}
+.filter-container input[type="date"],
+.filter-container select {
+  padding: 12px;
+  border: 1px solid #BB86FC;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Form Layouts */
+.input-field, .labour-management-form, .expense-entry-form, .Page-Title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Expense Edit Container */
+.expense-edit-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 24px;
+  background-color: #1F1B24;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.expense-edit-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #BB86FC;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.expense-edit-container input,
+.expense-edit-container select {
+  width: 100%;
+  max-width: 350px;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #BB86FC;
+  margin-bottom: 20px;
+  background-color: #1F1B24;
+  color: #E0E0E0;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+.expense-edit-container input:focus,
+.expense-edit-container select:focus {
+  border-color: #3700B3;
+  outline: none;
+}
+
+/* Image Wrapper */
+.bg-image-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titles */
+.title, .Page-Title {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .container, .reports-container, .card, .expense-edit-container {
+    min-width: unset;
+    max-width: 98vw;
+    padding: 12px;
+    align-items: center;
+  }
+  .filter-container {
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100vw;
+  }
+  nav {
+    flex-direction: column;
+    height: auto;
+    gap: 4px;
+  }
+  table, .reports-table {
+    font-size: 13px;
+  }
+}
+
+/* Miscellaneous */
+.labour-management .title {
+  margin-top: -200px;
+}
