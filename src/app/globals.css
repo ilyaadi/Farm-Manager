@@ -326,3 +326,77 @@ tr:hover {
 .labour-management .title {
   margin-top: -200px;
 }
+
+/* Dropdown styles for navbar */
+nav .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+nav .dropbtn {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 8px;
+  color: #BB86FC;
+  font-weight: 1000;
+  letter-spacing: 0.5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  box-shadow: 0 1px 4px rgba(187,134,252,0.04);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background: #232526;
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  border-radius: 8px;
+  z-index: 200;
+  left: 0;
+  top: 110%;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+nav .dropdown-content a {
+  color: #BB86FC;
+  padding: 10px 18px;
+  text-decoration: none;
+  display: block;
+  border-radius: 6px;
+  background: none;
+  transition: background 0.18s, color 0.18s;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+
+nav .dropdown-content a:hover {
+  background: #2a223a;
+  color: #fff;
+}
+
+nav .dropdown:hover .dropdown-content,
+nav .dropdown:focus-within .dropdown-content {
+  display: flex;
+}
+
+nav .dropdown:hover .dropbtn,
+nav .dropdown:focus-within .dropbtn {
+  background: #2a223a;
+  color: #fff;
+}
+
+nav .dropbtn.disabled {
+  color: #888;
+  cursor: not-allowed;
+  background: none;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
