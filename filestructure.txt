@@ -56,7 +56,8 @@
             |-- page.tsx
         |-- favicon.ico
         |-- fruitEdit
-            |-- page.tsx
+            |-- [id]
+                |-- page.tsx
         |-- fruitEntry
             |-- page.tsx
         |-- fruitReport
