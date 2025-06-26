@@ -113,10 +113,10 @@ const FruitReportForm = () => {
                     value={row}
                     onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setRow(e.target.value)}
                     options={[
-                        { value: "A", label: "A" },
-                        { value: "B", label: "B" },
-                        { value: "C", label: "C" },
-                        { value: "D", label: "D" },
+                        { value: "a", label: "a" },
+                        { value: "b", label: "b" },
+                        { value: "c", label: "c" },
+                        { value: "d", label: "d" },
                     ]}
                 />
                 <SelectField
