@@ -1,4 +1,5 @@
 import { getSession } from "@/actions";
+import { redirect } from "next/navigation";
 import ExpenseEditForm from "@/components/ExpenseEditForm";
 
 const ExpenseEdit = async ({ params }: { params: { id: string } }) => {
@@ -6,7 +7,7 @@ const ExpenseEdit = async ({ params }: { params: { id: string } }) => {
   const expenseId = params.id;  // Get the expense ID from the URL
 
   if (!session?.isLoggedIn) {
-    return <p>Please log in to edit expenses.</p>;
+    redirect("/login");
   }
 
   return (

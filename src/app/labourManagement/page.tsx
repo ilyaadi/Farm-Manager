@@ -1,8 +1,13 @@
 import { getSession } from "@/actions";
+import { redirect } from "next/navigation";
 import LabourManagementForm from "@/components/LabourManagementForm";
 
 const LabourManagement = async () => {
     const session = await getSession();
+
+    if (!session?.isLoggedIn) {
+        redirect("/login");
+    }
 
     return (
         <div className="Page-Title">

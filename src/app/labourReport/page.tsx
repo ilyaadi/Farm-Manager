@@ -1,12 +1,18 @@
+import { getSession } from "@/actions"; // or wherever your session util is
+import { redirect } from "next/navigation";
 import LabourReportForm from "@/components/LabourReportForm";
 
-const LabourReport = () => {
-    return (
-        <div className="Page-Title">
-            <h2>Welcome to Labour Report</h2>
-            <LabourReportForm />
-        </div>
-    );
-};
+export default async function LabourReportPage() {
+  const session = await getSession();
 
-export default LabourReport;
+  if (!session?.isLoggedIn) {
+    redirect("/login");
+  }
+
+  return (
+    <div className="Page-Title">
+      <h2>Welcome to Labour Report</h2>
+      <LabourReportForm />
+    </div>
+  );
+}   

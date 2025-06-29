@@ -1,8 +1,13 @@
 import { getSession } from "@/actions";
+import { redirect } from "next/navigation";
 import FruitEntryForm from "@/components/FruitEntryForm";
 
 const FruitEntry = async () => {
   const session = await getSession();
+
+  if (!session?.isLoggedIn) {
+    redirect("/login");
+  }
 
   return (
     <div className="Page-Title">
@@ -11,5 +16,3 @@ const FruitEntry = async () => {
     </div>
   );
 };
-
-export default FruitEntry;

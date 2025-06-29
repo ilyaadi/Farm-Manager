@@ -1,12 +1,13 @@
 import { getSession } from "@/actions";
+import { redirect } from "next/navigation";
 import FruitEditForm from "@/components/FruitEditForm";
 
 const FruitEdit = async ({ params }: { params: { id: string } }) => {
   const session = await getSession();
-  const fruitId = params.id;  // Get the expense ID from the URL
+  const fruitId = params.id;  // Get the fruit ID from the URL
 
   if (!session?.isLoggedIn) {
-    return <p>Please log in to edit fruit.</p>;
+    redirect("/login");
   }
 
   return (

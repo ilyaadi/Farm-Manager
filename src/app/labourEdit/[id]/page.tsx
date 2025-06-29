@@ -1,4 +1,5 @@
 import { getSession } from "@/actions";
+import { redirect } from "next/navigation";
 import LabourEditForm from "@/components/LabourEditForm";
 
 const LabourEdit = async ({ params }: { params: { id: string } }) => {
@@ -6,7 +7,7 @@ const LabourEdit = async ({ params }: { params: { id: string } }) => {
     const labourId = params.id; // Get the labour ID from the URL
 
     if (!session?.isLoggedIn) {
-        return <p>Please log in to edit labour entries.</p>;
+        redirect("/login");
     }
 
     return (
