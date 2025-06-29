@@ -16,3 +16,5 @@ const FruitReport = async () => {
     </div>
   );
 };
+
+export default FruitReport;
