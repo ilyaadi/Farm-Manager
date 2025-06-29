@@ -425,3 +425,82 @@ tr:hover {
 .labour-management .title {
   margin-top: -200px;
 }
+
+@media (max-width: 700px) {
+    nav, nav .dropdown-content, .nav-flyout {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  nav a, nav .dropbtn, nav .dropdown-content a {
+    text-align: center;
+  }
+  
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 2vw;
+    border-radius: 10px;
+    max-width: 100vw;
+    min-width: 0;
+    font-size: 16px;
+  }
+  nav a, nav .dropbtn {
+    font-size: 16px;
+    padding: 18px 0;
+    width: 100%;
+    border-radius: 0;
+    text-align: left;
+    border-bottom: 1px solid #28223a;
+  }
+  nav .dropdown-content {
+    position: static;
+    min-width: 100vw;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+  nav .dropdown-content a {
+    font-size: 16px;
+    padding: 16px 24px;
+    border-radius: 0;
+    margin: 0;
+  }
+  .nav-dots-wrapper {
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+  }
+  .nav-flyout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    border-radius: 0 0 16px 16px;
+    padding: 24px 0 8px 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+    animation: fadeIn 0.3s;
+  }
+  .container, .reports-container, .card, .expense-edit-container {
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 8px;
+  }
+  .title, .Page-Title {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+  table, .reports-table {
+    font-size: 12px;
+    min-width: 200px;
+  }
+  .filter-container {
+    gap: 4px;
+    flex-direction: column;
+    max-width: 100vw;
+  }
+}
