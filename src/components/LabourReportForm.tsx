@@ -83,14 +83,14 @@ const LabourReportForm = () => {
         <div className="reports-container">
             <div className="filter-container">
             <InputField
-                label="Start Date"
+                label="From"
                 id="startDate"
                 type="date"
                 value={startDate}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStartDate(e.target.value)}
             />
             <InputField
-                label="End Date"
+                label="To"
                 id="endDate"
                 type="date"
                 value={endDate}
@@ -121,17 +121,6 @@ const LabourReportForm = () => {
                         { value: "amit", label: "amit" },
                     ]}
                 />
-                {/* <SelectField
-                    label="Name"
-                    id="filterName"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    options={[
-                        { value: "", label: "All" },
-                        { value: "sushil", label: "sushil" },
-                        { value: "amit", label: "amit" },
-                    ]}
-                /> */}
                 <button onClick={filterLabours} className="filter-button">
                     Filter
                 </button>

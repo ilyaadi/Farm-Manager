@@ -93,14 +93,14 @@ const FruitReportForm = () => {
         <div className="reports-container">
             <div className="filter-container">
                 <InputField
-                    label="Date From"
+                    label="From"
                     id="dateFrom"
                     type="date"
                     value={dateFrom}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateFrom(e.target.value)}
                 />
                 <InputField
-                    label="Date To"
+                    label="To"
                     id="dateTo"
                     type="date"
                     value={dateTo}
