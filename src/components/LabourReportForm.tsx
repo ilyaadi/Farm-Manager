@@ -96,20 +96,6 @@ const LabourReportForm = () => {
                 value={endDate}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEndDate(e.target.value)}
             />
-                {/* <InputField
-                    label="Start Date"
-                    id="startDate"
-                    type="date"
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
-                />
-                <InputField
-                    label="End Date"
-                    id="endDate"
-                    type="date"
-                    value={endDate}
-                    onChange={(e) => setEndDate(e.target.value)}
-                /> */}
                 <SelectField
                     label="Name"
                     id="filterName"

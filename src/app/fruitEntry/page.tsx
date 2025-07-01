@@ -16,3 +16,5 @@ const FruitEntry = async () => {
     </div>
   );
 };
+
+export default FruitEntry;
