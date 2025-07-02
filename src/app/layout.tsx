@@ -32,6 +32,10 @@ export default function RootLayout({
 }) {
    return (
     <html lang="en" className={`${lora.variable} ${quicksand.variable}`}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximumscale=1" />
+      </Head>
       <body className="font-body bg-gray-900 text-white">
         <div className="container">
           <Navbar />
