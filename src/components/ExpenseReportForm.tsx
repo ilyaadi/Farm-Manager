@@ -119,40 +119,38 @@ const ExpenseReportForm = () => {
                     </button>
                 </div>
 
-                <div className="expense-report-table-center">
-                    <table className="reports-table">
-                        <thead>
-                            <tr className="table-header">
-                                <th className="table-heading">Date</th>
-                                <th className="table-heading">Amount</th>
-                                <th className="table-heading">Description</th>
-                                <th className="table-heading">Category</th>
-                                <th className="table-heading"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredExpenses.length > 0 ? (
-                                filteredExpenses.map((expense, index) => (
-                                    <tr key={index} className="table-row">
-                                        <td className="table-cell">{formatDate(expense.date)}</td>
-                                        <td className="table-cell">{expense.amount}</td>
-                                        <td className="table-cell">{expense.description}</td>
-                                        <td className="table-cell">{expense.category}</td>
-                                        <td className="table-cell">
-                                            <Link href={`/expenseEdit/${expense._id}`} className="edit-link">
-                                                Edit
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan={5} className="table-cell no-data">No expenses found</td>
+                <table className="reports-table">
+                    <thead>
+                        <tr className="table-header">
+                            <th className="table-heading">Date</th>
+                            <th className="table-heading">Amount</th>
+                            <th className="table-heading">Description</th>
+                            <th className="table-heading">Category</th>
+                            <th className="table-heading"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredExpenses.length > 0 ? (
+                            filteredExpenses.map((expense, index) => (
+                                <tr key={index} className="table-row">
+                                    <td className="table-cell">{formatDate(expense.date)}</td>
+                                    <td className="table-cell">{expense.amount}</td>
+                                    <td className="table-cell">{expense.description}</td>
+                                    <td className="table-cell">{expense.category}</td>
+                                    <td className="table-cell">
+                                        <Link href={`/expenseEdit/${expense._id}`} className="edit-link">
+                                            Edit
+                                        </Link>
+                                    </td>
                                 </tr>
-                            )}
-                        </tbody>
-                    </table>
-                </div>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan={5} className="table-cell no-data">No expenses found</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
             </div>
         </div>
     );

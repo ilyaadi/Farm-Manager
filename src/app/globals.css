@@ -659,12 +659,3 @@ tr:hover {
     margin-bottom: -50px !important;
   }
 }
-
-/* Center align the expense report table within its container */
-.expense-report-table-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
