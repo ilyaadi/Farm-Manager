@@ -11,7 +11,7 @@ const ExpenseReport = async () => {
 
   return (
     <div className="Page-Title">
-      <h2>Expense Report</h2>
+      <h2 className="expense-report-title">Expense Report</h2>
       <ExpenseReportForm />
     </div>
   );

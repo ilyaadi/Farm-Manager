@@ -19,7 +19,7 @@ h1, .Page-Title, .title {
   font-family: 'Playfair Display', serif;
   color: #b6e388;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 6px;
   letter-spacing: 1px;
   font-size: 2.4rem;
   font-weight: 700;
@@ -29,6 +29,9 @@ h2, h3, th {
   color: #e6e97a;
   font-weight: 700;
   text-align: center;
+}
+.Page-Title h2 {
+  margin-bottom: 0;
 }
 
 /* Links */
@@ -382,9 +385,10 @@ tr:hover {
   box-sizing: border-box;
 }
 .reports-container .filter-container select + label,
-.reports-container .filter-container .input-field label {
+.reports-container .filter-container .input-field label,
+.reports-container .filter-container label.dropdown-label {
   position: relative;
-  top: 6px;
+  top: 20px;
 }
 
 /* Form Layouts */
@@ -436,11 +440,19 @@ tr:hover {
 
 /* Titles */
 .title, .Page-Title {
-  margin-bottom: 30px;
+  margin-bottom: 6px;
   margin-top: 10px;
   color: #e6e97a;
   text-align: center;
   font-family: 'Playfair Display', serif;
+}
+
+/* Consistent gap under report page titles */
+.reports-center .title,
+.reports-center .Page-Title,
+.reports-center h1,
+.reports-center h2 {
+  margin-bottom: 10px !important;
 }
 
 /* Miscellaneous */
@@ -555,7 +567,7 @@ tr:hover {
   }
   .title, .Page-Title, h1 {
     font-size: 2rem;
-    margin-bottom: 18px;
+    margin-bottom: 4px;
   }
   input, select, textarea {
     min-width: 0;
@@ -617,5 +629,35 @@ tr:hover {
     font-size: 17px;
     padding: 20px 10px;
     margin-bottom: 16px;
+  }
+}
+
+/* Specific styles for fruit report title */
+.fruit-report-title {
+  margin-bottom: -70px !important;
+}
+@media (max-width: 700px) {
+  .fruit-report-title {
+    margin-bottom: -90px !important;
+  }
+}
+
+/* Specific styles for expense report title */
+.expense-report-title {
+  margin-bottom: 2px !important;
+}
+@media (max-width: 700px) {
+  .expense-report-title {
+    margin-bottom: -10px !important;
+  }
+}
+
+/* Specific styles for labour report title */
+.labour-report-title {
+  margin-bottom: 2px !important;
+}
+@media (max-width: 700px) {
+  .labour-report-title {
+    margin-bottom: -50px !important;
   }
 }
