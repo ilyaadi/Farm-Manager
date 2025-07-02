@@ -80,69 +80,71 @@ const LabourReportForm = () => {
     };
 
     return (
-        <div className="reports-container">
-            <div className="filter-container">
-            <InputField
-                label="From"
-                id="startDate"
-                type="date"
-                value={startDate}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStartDate(e.target.value)}
-            />
-            <InputField
-                label="To"
-                id="endDate"
-                type="date"
-                value={endDate}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEndDate(e.target.value)}
-            />
-                <SelectField
-                    label="Name"
-                    id="filterName"
-                    value={name}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setName(e.target.value)}
-                    options={[
-                        { value: "", label: "All" },
-                        { value: "sushil", label: "sushil" },
-                        { value: "amit", label: "amit" },
-                    ]}
-                />
-                <button onClick={filterLabours} className="filter-button">
-                    Filter
-                </button>
-            </div>
+        <div className="reports-center">
+            <div className="reports-container">
+                <div className="filter-container">
+                    <InputField
+                        label="From"
+                        id="startDate"
+                        type="date"
+                        value={startDate}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setStartDate(e.target.value)}
+                    />
+                    <InputField
+                        label="To"
+                        id="endDate"
+                        type="date"
+                        value={endDate}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEndDate(e.target.value)}
+                    />
+                    <SelectField
+                        label="Name"
+                        id="filterName"
+                        value={name}
+                        onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setName(e.target.value)}
+                        options={[
+                            { value: "", label: "All" },
+                            { value: "sushil", label: "sushil" },
+                            { value: "amit", label: "amit" },
+                        ]}
+                    />
+                    <button onClick={filterLabours} className="filter-button">
+                        Filter
+                    </button>
+                </div>
 
-            {/* Table Section */}
-            <table className="reports-table">
-                <thead>
-                    <tr className="table-header">
-                        <th className="table-heading">Date</th>
-                        <th className="table-heading">Shift</th>
-                        <th className="table-heading">Name</th>
-                        <th className="table-heading">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredLabours.length > 0 ? (
-                        filteredLabours.map((labour, index) => (
-                            <tr key={index} className="table-row">
-                                <td className="table-cell">{formatDate(labour.date)}</td>
-                                <td className="table-cell">{labour.shift}</td>
-                                <td className="table-cell">{labour.name}</td>
-                                <td className="table-cell">
-                                    <Link href={`/labourEdit/${labour._id}`} className="text-blue-500 hover:underline">
-                                        Edit
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan={4} className="p-2 text-center border border-gray-300">No labours found</td>
+                {/* Table Section */}
+                <table className="reports-table">
+                    <thead>
+                        <tr className="table-header">
+                            <th className="table-heading">Date</th>
+                            <th className="table-heading">Shift</th>
+                            <th className="table-heading">Name</th>
+                            <th className="table-heading">Actions</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {filteredLabours.length > 0 ? (
+                            filteredLabours.map((labour, index) => (
+                                <tr key={index} className="table-row">
+                                    <td className="table-cell">{formatDate(labour.date)}</td>
+                                    <td className="table-cell">{labour.shift}</td>
+                                    <td className="table-cell">{labour.name}</td>
+                                    <td className="table-cell">
+                                        <Link href={`/labourEdit/${labour._id}`} className="text-blue-500 hover:underline">
+                                            Edit
+                                        </Link>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan={4} className="p-2 text-center border border-gray-300">No labours found</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

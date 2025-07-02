@@ -21,6 +21,8 @@ h1, .Page-Title, .title {
   text-align: center;
   margin-bottom: 20px;
   letter-spacing: 1px;
+  font-size: 2.4rem;
+  font-weight: 700;
 }
 h2, h3, th {
   font-family: 'Lora', serif;
@@ -209,10 +211,11 @@ nav .dropdown:focus-within .dropbtn {
 
 /* Container Styles */
 .container, .reports-container, .card {
-  max-width: 700px;
+  max-width: 500px;
   width: 100%;
+  min-width: 320px;
   margin: 0 auto;
-  padding: 0 8px;
+  padding: 24px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -226,7 +229,7 @@ nav .dropdown:focus-within .dropbtn {
 /* Form Inputs */
 input, select, textarea {
   width: 100%;
-  max-width: 350px;
+  max-width: 100%;
   padding: 12px;
   border-radius: 6px;
   border: 1px solid #b6e388;
@@ -350,6 +353,39 @@ tr:hover {
   text-align: center;
   font-family: 'Work Sans', Arial, sans-serif;
 }
+.reports-container .filter-container input,
+.reports-container .filter-container select {
+  font-size: 13px;
+  padding: 0 4px;
+  width: 70px;
+  min-width: 70px;
+  max-width: 70px;
+  height: 32px;
+  margin-bottom: 6px;
+  box-sizing: border-box;
+  line-height: 32px;
+}
+.reports-container .filter-container select {
+  margin-top: 6px;
+}
+.reports-container .filter-container label {
+  font-size: 12px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+.reports-container .filter-button {
+  font-size: 13px;
+  padding: 8px 14px;
+  margin-top: 18px;
+  height: 36px;
+  min-height: 36px;
+  box-sizing: border-box;
+}
+.reports-container .filter-container select + label,
+.reports-container .filter-container .input-field label {
+  position: relative;
+  top: 6px;
+}
 
 /* Form Layouts */
 .input-field, .labour-management-form, .expense-entry-form, .Page-Title {
@@ -410,6 +446,16 @@ tr:hover {
 /* Miscellaneous */
 .labour-management .title {
   margin-top: -200px;
+}
+
+/* Reports Center Utility Class */
+.reports-center {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive Design */
@@ -507,10 +553,17 @@ tr:hover {
     animation: fadeIn 0.3s;
     text-align: center;
   }
-  .title, .Page-Title {
-    font-size: 1.2rem;
+  .title, .Page-Title, h1 {
+    font-size: 2rem;
+    margin-bottom: 18px;
+  }
+  input, select, textarea {
+    min-width: 0;
+    max-width: 340px;
+    width: 96vw;
+    font-size: 17px;
+    padding: 20px 10px;
     margin-bottom: 16px;
-    text-align: center;
   }
   table, .reports-table {
     font-size: 12px;
@@ -556,5 +609,13 @@ tr:hover {
   .input-field, .labour-management-form, .expense-entry-form, .Page-Title {
     align-items: center;
     text-align: center;
+  }
+  input, select, textarea {
+    min-width: 0;
+    max-width: 340px;
+    width: 96vw;
+    font-size: 17px;
+    padding: 20px 10px;
+    margin-bottom: 16px;
   }
 }

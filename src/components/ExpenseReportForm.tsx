@@ -87,69 +87,71 @@ const ExpenseReportForm = () => {
     };
 
     return (
-        <div className="reports-container">
-            <div className="filter-container">
-                <InputField
-                    label="From"
-                    id="dateFrom"
-                    type="date"
-                    value={dateFrom}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateFrom(e.target.value)}
-                />
-                <InputField
-                    label="To"
-                    id="dateTo"
-                    type="date"
-                    value={dateTo}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateTo(e.target.value)}
-                />
-                <SelectField
-                    label="Category"
-                    id="filterCategory"
-                    value={category}
-                    onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value)}
-                    options={[
-                        { value: "asset", label: "Asset" },
-                        { value: "expense", label: "Expense" },
-                    ]}
-                />
-                <button onClick={filterExpenses} className="filter-button">
-                    Filter
-                </button>
-            </div>
+        <div className="reports-center">
+            <div className="reports-container">
+                <div className="filter-container">
+                    <InputField
+                        label="From"
+                        id="dateFrom"
+                        type="date"
+                        value={dateFrom}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateFrom(e.target.value)}
+                    />
+                    <InputField
+                        label="To"
+                        id="dateTo"
+                        type="date"
+                        value={dateTo}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateTo(e.target.value)}
+                    />
+                    <SelectField
+                        label="Category"
+                        id="filterCategory"
+                        value={category}
+                        onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setCategory(e.target.value)}
+                        options={[
+                            { value: "asset", label: "Asset" },
+                            { value: "expense", label: "Expense" },
+                        ]}
+                    />
+                    <button onClick={filterExpenses} className="filter-button">
+                        Filter
+                    </button>
+                </div>
 
-            <table className="reports-table">
-                <thead>
-                    <tr className="table-header">
-                        <th className="table-heading">Date</th>
-                        <th className="table-heading">Amount</th>
-                        <th className="table-heading">Description</th>
-                        <th className="table-heading">Category</th>
-                        <th className="table-heading"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredExpenses.length > 0 ? (
-                        filteredExpenses.map((expense, index) => (
-                            <tr key={index} className="table-row">
-                                <td className="table-cell">{formatDate(expense.date)}</td>
-                                <td className="table-cell">{expense.amount}</td>
-                                <td className="table-cell">{expense.description}</td>
-                                <td className="table-cell">{expense.category}</td>
-                                <td className="table-cell">
-                                    <Link href={`/expenseEdit/${expense._id}`} className="edit-link">
-                                        Edit
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan={5} className="table-cell no-data">No expenses found</td>
+                <table className="reports-table">
+                    <thead>
+                        <tr className="table-header">
+                            <th className="table-heading">Date</th>
+                            <th className="table-heading">Amount</th>
+                            <th className="table-heading">Description</th>
+                            <th className="table-heading">Category</th>
+                            <th className="table-heading"></th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {filteredExpenses.length > 0 ? (
+                            filteredExpenses.map((expense, index) => (
+                                <tr key={index} className="table-row">
+                                    <td className="table-cell">{formatDate(expense.date)}</td>
+                                    <td className="table-cell">{expense.amount}</td>
+                                    <td className="table-cell">{expense.description}</td>
+                                    <td className="table-cell">{expense.category}</td>
+                                    <td className="table-cell">
+                                        <Link href={`/expenseEdit/${expense._id}`} className="edit-link">
+                                            Edit
+                                        </Link>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan={5} className="table-cell no-data">No expenses found</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

@@ -11,7 +11,7 @@ export default async function LabourReportPage() {
 
   return (
     <div className="Page-Title">
-      <h2>Welcome to Labour Report</h2>
+      <h2>Labour Report</h2>
       <LabourReportForm />
     </div>
   );
