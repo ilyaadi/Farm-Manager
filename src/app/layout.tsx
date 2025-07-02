@@ -1,8 +1,24 @@
 import './globals.css'
+import { Lora, Quicksand } from 'next/font/google'
 import { Inter } from 'next/font/google'
 import Navbar from "@/components/navbar";
+import Head from 'next/head'
+
+const lora = Lora({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-lora',
+  display: 'swap',
+})
 
 const inter = Inter({ subsets: ['latin'] })
+
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-quicksand',
+  display: 'swap',
+})
 
 export const metadata = {
   title: 'Farm Manager',
@@ -14,14 +30,22 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-      <html lang="en">
-      <body className={inter.className}>
-      <div className="container">
-        <Navbar />
-        <div className="content">{children}</div>
-      </div>
-      </body>
+   return (
+    <>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Quicksand:wght@400;700&family=Work+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <html lang="en" className={`${lora.variable} ${quicksand.variable}`}>
+        <body className="font-body bg-gray-900 text-white">
+          <div className="container">
+            <Navbar />
+            <div className="content">{children}</div>
+          </div>
+        </body>
       </html>
+    </>
   );
 }

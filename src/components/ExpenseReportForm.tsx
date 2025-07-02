@@ -103,20 +103,6 @@ const ExpenseReportForm = () => {
                     value={dateTo}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateTo(e.target.value)}
                 />
-                {/* <InputField
-                    label="Date From"
-                    id="dateFrom"
-                    type="date"
-                    value={dateFrom}
-                    onChange={(e) => setDateFrom(e.target.value)}
-                />
-                <InputField
-                    label="Date To"
-                    id="dateTo"
-                    type="date"
-                    value={dateTo}
-                    onChange={(e) => setDateTo(e.target.value)}
-                /> */}
                 <SelectField
                     label="Category"
                     id="filterCategory"
@@ -127,16 +113,6 @@ const ExpenseReportForm = () => {
                         { value: "expense", label: "Expense" },
                     ]}
                 />
-                {/* <SelectField
-                    label="Category"
-                    id="filterCategory"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    options={[
-                        { value: "asset", label: "Asset" },
-                        { value: "expense", label: "Expense" },
-                    ]}
-                /> */}
                 <button onClick={filterExpenses} className="filter-button">
                     Filter
                 </button>

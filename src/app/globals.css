@@ -8,32 +8,41 @@
 /* Body Styling */
 body {
   text-align: center;
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #121212 0%, #232526 100%);
-  color: #E0E0E0;
+  font-family: 'Work Sans', Arial, sans-serif;
+  background: linear-gradient(135deg, #1a2e05 0%, #232526 100%);
+  color: #e0e0e0;
   min-height: 100vh;
 }
 
 /* Typography */
-h1, h2 {
-  font-family: 'Montserrat', sans-serif;
-  color: #FFFFFF;
+h1, .Page-Title, .title {
+  font-family: 'Playfair Display', serif;
+  color: #b6e388;
   text-align: center;
   margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+h2, h3, th {
+  font-family: 'Lora', serif;
+  color: #e6e97a;
+  font-weight: 700;
+  text-align: center;
 }
 
 /* Links */
 a {
-  color: #BB86FC;
+  color: #b6e388;
+  font-family: 'Quicksand', 'Work Sans', Arial, sans-serif;
+  font-weight: 600;
   text-decoration: none;
   padding: 8px 16px;
   border-radius: 6px;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
   text-align: center;
   display: inline-block;
 }
 a:hover {
-  background: #2a223a;
+  background: #2a4d14;
   color: #fff;
   text-decoration: underline;
 }
@@ -53,10 +62,10 @@ nav {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: rgba(31,27,36,0.97);
+  background: rgba(34, 49, 24, 0.97);
   backdrop-filter: blur(6px);
   box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  border: 1.5px solid #28223a;
+  border: 1.5px solid #3e4a2c;
   border-radius: 16px;
   box-sizing: border-box;
   transition: max-width 0.3s, padding 0.3s;
@@ -66,18 +75,19 @@ nav a {
   padding: 8px 18px;
   font-size: 13px;
   border-radius: 8px;
-  color: #BB86FC;
-  font-weight: 1000;
+  color: #b6e388;
+  font-family: 'Quicksand', 'Work Sans', Arial, sans-serif;
+  font-weight: 700;
   letter-spacing: 0.5px;
   transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-  box-shadow: 0 1px 4px rgba(187,134,252,0.04);
+  box-shadow: 0 1px 4px rgba(182,227,136,0.04);
   display: inline-block;
   text-align: center;
 }
 nav a:hover, nav a.active {
-  background: #2a223a;
+  background: #2a4d14;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(187,134,252,0.12);
+  box-shadow: 0 2px 8px rgba(182,227,136,0.12);
   text-decoration: none;
 }
 
@@ -91,14 +101,15 @@ nav .dropbtn {
   padding: 8px 16px;
   font-size: 13px;
   border-radius: 8px;
-  color: #BB86FC;
-  font-weight: 1000;
+  color: #b6e388;
+  font-family: 'Quicksand', 'Work Sans', Arial, sans-serif;
+  font-weight: 700;
   letter-spacing: 0.5px;
   background: none;
   border: none;
   cursor: pointer;
   transition: background 0.18s, color 0.18s;
-  box-shadow: 0 1px 4px rgba(187,134,252,0.04);
+  box-shadow: 0 1px 4px rgba(182,227,136,0.04);
   display: inline-block;
   white-space: nowrap;
   text-align: center;
@@ -127,7 +138,7 @@ nav .dropdown-content {
 nav .dropdown-content a {
   display: block;
   padding: 10px 18px;
-  color: #BB86FC;
+  color: #b6e388;
   background: none;
   border-radius: 6px;
   font-size: 13px;
@@ -142,12 +153,12 @@ nav .dropdown:focus-within .dropdown-content {
   display: flex;
 }
 nav .dropdown-content a:hover {
-  background: #2a223a;
+  background: #2a4d14;
   color: #fff;
 }
 nav .dropdown:hover .dropbtn,
 nav .dropdown:focus-within .dropbtn {
-  background: #2a223a;
+  background: #2a4d14;
   color: #fff;
 }
 
@@ -172,15 +183,15 @@ nav .dropdown:focus-within .dropbtn {
   display: block;
   width: 6px;
   height: 6px;
-  background: #BB86FC;
+  background: #b6e388;
   border-radius: 50%;
 }
 .nav-flyout {
   position: absolute;
   top: 36px;
   left: 0;
-  background: rgba(31,27,36,0.97);
-  border: 1.5px solid #28223a;
+  background: rgba(34, 49, 24, 0.97);
+  border: 1.5px solid #3e4a2c;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.18);
   padding: 16px 24px;
@@ -207,6 +218,9 @@ nav .dropdown:focus-within .dropbtn {
   align-items: center;
   text-align: center;
   box-sizing: border-box;
+  background: rgba(34, 49, 24, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(34, 49, 24, 0.18);
 }
 
 /* Form Inputs */
@@ -215,19 +229,20 @@ input, select, textarea {
   max-width: 350px;
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid #BB86FC;
+  border: 1px solid #b6e388;
   margin-bottom: 20px;
   background-color: #232526;
-  color: #E0E0E0;
+  color: #e0e0e0;
   font-size: 15px;
+  font-family: 'Work Sans', Arial, sans-serif;
   transition: border-color 0.3s, box-shadow 0.3s;
   text-align: center;
 }
 input:focus, select:focus, textarea:focus {
-  border-color: #3700B3;
-  outline: 2px solid #BB86FC;
+  border-color: #e6e97a;
+  outline: 2px solid #b6e388;
   outline-offset: 2px;
-  box-shadow: 0 0 0 2px #BB86FC33;
+  box-shadow: 0 0 0 2px #b6e38833;
 }
 
 /* Button Styling */
@@ -235,18 +250,20 @@ button, .submit-button, .filter-button {
   border: none;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 600;
+  font-family: 'Quicksand', 'Work Sans', Arial, sans-serif;
+  font-weight: 700;
   padding: 12px 24px;
   border-radius: 6px;
-  background-color: #BB86FC;
-  color: #FFFFFF;
+  background-color: #b6e388;
+  color: #232526;
   margin-top: 8px;
-  box-shadow: 0 2px 8px rgba(187,134,252,0.15);
+  box-shadow: 0 2px 8px rgba(182,227,136,0.15);
   transition: background 0.3s, transform 0.2s;
   text-align: center;
 }
 button:hover, .submit-button:hover, .filter-button:hover {
-  background-color: #3700B3;
+  background-color: #e6e97a;
+  color: #232526;
   transform: scale(1.04);
 }
 
@@ -266,7 +283,7 @@ button:hover, .submit-button:hover, .filter-button:hover {
   margin-top: 10px;
 }
 .success-message {
-  color: #4CAF50;
+  color: #b6e388;
   text-align: center;
   margin-top: 10px;
 }
@@ -288,26 +305,27 @@ table, .reports-table {
 }
 th, td {
   padding: 14px;
-  border: 1px solid #BB86FC;
+  border: 1px solid #b6e388;
   text-align: center;
+  font-family: 'Lora', serif;
 }
 th {
-  background-color: #1F1B24;
-  color: #FFFFFF;
+  background-color: #232526;
+  color: #e6e97a;
 }
 tr:hover {
-  background-color: #333;
+  background-color: #2a4d14;
 }
 .no-data {
   text-align: center;
   color: #777;
 }
 .edit-link {
-  color: #4aa3ff;
+  color: #b6e388;
   cursor: pointer;
 }
 .edit-link:hover {
-  color: #0070f3;
+  color: #e6e97a;
   text-decoration: underline;
 }
 
@@ -325,11 +343,12 @@ tr:hover {
 .filter-container input[type="date"],
 .filter-container select {
   padding: 12px;
-  border: 1px solid #BB86FC;
+  border: 1px solid #b6e388;
   border-radius: 8px;
-  background-color: #333;
+  background-color: #232526;
   color: #fff;
   text-align: center;
+  font-family: 'Work Sans', Arial, sans-serif;
 }
 
 /* Form Layouts */
@@ -344,21 +363,9 @@ tr:hover {
 }
 
 /* Expense Edit Container */
-.expense-edit-container {
-  max-width: 700px;
-  margin: auto;
-  padding: 24px;
-  background-color: #1F1B24;
-  border-radius: 12px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 .expense-edit-container h2 {
-  font-family: 'Montserrat', sans-serif;
-  color: #BB86FC;
+  font-family: 'Playfair Display', serif;
+  color: #e6e97a;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -368,17 +375,18 @@ tr:hover {
   max-width: 350px;
   padding: 14px;
   border-radius: 6px;
-  border: 1px solid #BB86FC;
+  border: 1px solid #b6e388;
   margin-bottom: 20px;
-  background-color: #1F1B24;
-  color: #E0E0E0;
+  background-color: #232526;
+  color: #e0e0e0;
   font-size: 16px;
   transition: border-color 0.3s;
   text-align: center;
+  font-family: 'Work Sans', Arial, sans-serif;
 }
 .expense-edit-container input:focus,
 .expense-edit-container select:focus {
-  border-color: #3700B3;
+  border-color: #e6e97a;
   outline: none;
 }
 
@@ -394,8 +402,9 @@ tr:hover {
 .title, .Page-Title {
   margin-bottom: 30px;
   margin-top: 10px;
-  color: #FFFFFF;
+  color: #e6e97a;
   text-align: center;
+  font-family: 'Playfair Display', serif;
 }
 
 /* Miscellaneous */
@@ -424,6 +433,7 @@ tr:hover {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    background: rgba(34, 49, 24, 0.92);
   }
   nav {
     flex-direction: column;
@@ -461,7 +471,7 @@ tr:hover {
     width: 100%;
     border-radius: 0;
     text-align: center;
-    border-bottom: 1px solid #28223a;
+    border-bottom: 1px solid #3e4a2c;
   }
   nav .dropdown-content {
     position: static;
