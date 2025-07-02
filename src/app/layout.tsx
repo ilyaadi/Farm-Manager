@@ -31,21 +31,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
    return (
-    <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Quicksand:wght@400;700&family=Work+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <html lang="en" className={`${lora.variable} ${quicksand.variable}`}>
-        <body className="font-body bg-gray-900 text-white">
-          <div className="container">
-            <Navbar />
-            <div className="content">{children}</div>
-          </div>
-        </body>
-      </html>
-    </>
+    <html lang="en" className={`${lora.variable} ${quicksand.variable}`}>
+      <body className="font-body bg-gray-900 text-white">
+        <div className="container">
+          <Navbar />
+          <div className="content">{children}</div>
+        </div>
+      </body>
+    </html>
   );
 }
