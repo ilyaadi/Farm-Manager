@@ -483,7 +483,7 @@ tr:hover {
 
 /* Responsive Design */
 
-@media (max-width: 767px) {
+@media (max-width: 700px) {
     nav {
     max-width: 98vw;
     padding: 0 8px;
@@ -641,35 +641,35 @@ tr:hover {
     margin-bottom: 16px;
     }
   .fruit-report-title {
-    margin-bottom: -90px !important;
+    margin-bottom: -100px !important;
   }
   .expense-report-title {
-    margin-bottom: -10px !important;
+    margin-bottom: -70px !important;
   }
   .labour-report-title {
-    margin-bottom: -100px !important;
+    margin-bottom: -200px !important;
   }
 }
 
 
 /* Specific styles for fruit report title */
 .fruit-report-title {
-  margin-bottom: -120px !important;
+  margin-bottom: -100px !important;
 }
 
 /* Specific styles for expense report title */
 .expense-report-title {
-  margin-bottom: 2px !important;
+  margin-bottom: 150px !important;
 }
 
 
 /* Specific styles for labour report title */
 .labour-report-title {
-  margin-bottom: -20px !important;
+  margin-bottom: -9px !important;
 }
 
 nav .logout-button {
-  padding: 9px 18px !important;
+  padding: 8px 10px !important;
   font-size: 14px !important;
   border-radius: 8px !important;
   min-width: unset !important;
@@ -692,11 +692,4 @@ nav .logout-button:hover {
   background-color: #e6e97a !important;
   color: #232526 !important;
   transform: scale(1.04) !important;
-}
-@media (max-width: 767px) {
-  nav .logout-button {
-    padding: 12px 24px !important;
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
-  }
 }
