@@ -16,6 +16,9 @@
 |-- postcss.config.js
 |-- postcss.config.mjs
 |-- public
+    |-- icons
+        |-- icon-192x192.png
+        |-- icon-512x512.png
     |-- next.svg
     |-- vercel.svg
 |-- README.md
