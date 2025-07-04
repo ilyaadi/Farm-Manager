@@ -1,6 +1,10 @@
 import mongoose, { Schema, models, model } from "mongoose";
 
 const expenseSchema = new Schema({
+  userId: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     required: [true, "Please provide a date"],

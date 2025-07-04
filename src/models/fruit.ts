@@ -1,6 +1,10 @@
 import mongoose, { Schema, models, model } from "mongoose";
 
 const fruitSchema = new mongoose.Schema({
+    userId: {
+        type: String,
+        required: true,
+      },
     row: { 
         type: String, 
         required: true 

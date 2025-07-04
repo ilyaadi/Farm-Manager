@@ -141,38 +141,30 @@ export const expenseEntry = async (
     console.log(`formCategory=${formCategory}`);
 
     try {
-        // To check if amount is not 0
         if (formAmount == "0") {
             return { error: "Amount cannot be 0." };
         }
-
-        // To check if date is not a future date
         const currentDate = new Date();
         const parsedFormDate = new Date(formDate);
-
         if (isNaN(parsedFormDate.getTime())) {
-            return { error: "Invalid date format." }; // Handle invalid date input
+            return { error: "Invalid date format." };
         }
-
         if (parsedFormDate > currentDate) {
             return { error: "Date cannot be in future" };
         }
-
         const newExpense = new Expense({
             date: formDate,
             amount: formAmount,
             description: formDescription,
             category: formCategory,
+            userId: session.userId,
         });
-
         const savedExpense = await newExpense.save();
         console.log("Saved Expense:", savedExpense);
     } catch (error: any) {
         console.log("ExpenseEntry failed", error.message);
-
         return { error: error.message };
     }
-
     return { error: "Expense entry saved successfully." };
 };
 
@@ -182,48 +174,38 @@ export const fruitEntry = async (
 ) => {
     console.log(`inside fruitEntry func of actions.ts`);
     const session = await getSession();
-
     const formDate = formData.get("date") as string;
     const formRow = formData.get("row") as string;
     const formCollumn = formData.get("collumn") as string;
     const formCount = formData.get("count") as string;
     const formMessage = formData.get("message") as string;
     console.log(`formdate=${formDate}`);
-
-   try {
-        // To check if amount is not 0
+    try {
         if (formCount == "0") {
             return { error: "Count cannot be 0." };
         }
-
-        // To check if date is not a future date
         const currentDate = new Date();
         const parsedFormDate = new Date(formDate);
-
         if (isNaN(parsedFormDate.getTime())) {
-            return { error: "Invalid date format." }; // Handle invalid date input
+            return { error: "Invalid date format." };
         }
-
         if (parsedFormDate > currentDate) {
             return { error: "Date cannot be in future" };
         }
-
         const newFruit = new Fruit({
             date: formDate,
             count: formCount,
             message: formMessage,
             row: formRow,
             collumn: formCollumn,
-        });    
-
-       const savedFruit = await newFruit.save();
+            userId: session.userId,
+        });
+        const savedFruit = await newFruit.save();
         console.log("Saved Fruit:", savedFruit);
     } catch (error: any) {
         console.log("FruitEntry failed", error.message);
-
         return { error: error.message };
     }
-
     return { error: "Fruit entry saved successfully." };
 };
 
@@ -231,19 +213,12 @@ export const fruitReport = async (
     prevState: { error: undefined | string },
     formData: FormData
 ) => {
-    console.log(`inside expenseReport func of actions.ts`)
+    console.log(`inside fruitReport func of actions.ts`)
     const session = await getSession();
-    const formDate = formData.get("date") as string;
-    const formCount = formData.get("count") as string;
-    const formRow = formData.get("row") as string;
-    const formMessage = formData.get("message") as string;
-    console.log(`formdate=${formDate}`)
-
     try {
-        const fruit = await Fruit.find(); // Fetch all expenses from the database
-        console.log("Fetched Expenses:", fruit);
-
-        return NextResponse.json(fruit); // Return the list of expenses as JSON
+        const fruit = await Fruit.find({ userId: session.userId });
+        console.log("Fetched Fruits:", fruit);
+        return NextResponse.json(fruit);
     } catch (error: any) {
         console.error("Error fetching fruit:", error);
         return NextResponse.json({ error: error.message }, { status: 500 });
@@ -256,17 +231,10 @@ export const expenseReport = async (
 ) => {
     console.log(`inside expenseReport func of actions.ts`)
     const session = await getSession();
-    const formDate = formData.get("date") as string;
-    const formAmount = formData.get("amount") as string;
-    const formCategory = formData.get("category") as string;
-    const formDescription = formData.get("description") as string;
-    console.log(`formCategory=${formCategory}`)
-
     try {
-        const expenses = await Expense.find(); // Fetch all expenses from the database
+        const expenses = await Expense.find({ userId: session.userId });
         console.log("Fetched Expenses:", expenses);
-
-        return NextResponse.json(expenses); // Return the list of expenses as JSON
+        return NextResponse.json(expenses);
     } catch (error: any) {
         console.error("Error fetching expenses:", error);
         return NextResponse.json({ error: error.message }, { status: 500 });
@@ -394,40 +362,31 @@ export const labourManagement = async (
 ) => {
     console.log(`inside labourManagement func of actions.ts`);
     const session = await getSession();
-
     const formDate = formData.get("date") as string;
     const formShift = formData.get("shift") as string;
     const formName = formData.get("name") as string;
-
     console.log(`formName=${formName}`);
-
     try {
-        // To check if date is not a future date
         const currentDate = new Date();
         const parsedFormDate = new Date(formDate);
-
         if (isNaN(parsedFormDate.getTime())) {
-            return { error: "Invalid date format." }; // Handle invalid date input
+            return { error: "Invalid date format." };
         }
-
         if (parsedFormDate > currentDate) {
             return { error: "Date cannot be in future" };
         }
-
         const newLabour = new Labour({
             date: formDate,
             shift: formShift,
             name: formName,
+            userId: session.userId,
         });
-
         const savedLabour = await newLabour.save();
         console.log("Saved Labour:", savedLabour);
     } catch (error: any) {
         console.log("LabourEntry failed", error.message);
-
         return { error: error.message };
     }
-
     return { error: "Labour saved successfully." };
 };
 

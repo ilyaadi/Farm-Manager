@@ -10,9 +10,11 @@ const ExpenseReport = async () => {
   }
 
   return (
-    <div className="Page-Title">
-      <h2 className="expense-report-title">Expense Report</h2>
-      <ExpenseReportForm />
+    <div className="reports-center">
+      <div className="reports-container">
+        <h2 className="expense-report-title">Expense Report</h2>
+        <ExpenseReportForm />
+      </div>
     </div>
   );
 };

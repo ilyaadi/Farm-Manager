@@ -235,7 +235,7 @@ input, select, textarea {
   max-width: 100%;
   padding: 12px;
   border-radius: 6px;
-  border: 1px solid #b6e388;
+  border: 3px solid #550f85;
   margin-bottom: 20px;
   background-color: #232526;
   color: #e0e0e0;
@@ -450,7 +450,8 @@ tr:hover {
 .reports-center .Page-Title,
 .reports-center h1,
 .reports-center h2 {
-  margin-bottom: 10px !important;
+  margin-bottom: -180px !important;
+  font-size: 2.4rem !important;
 }
 
 /* Miscellaneous */
@@ -630,29 +631,23 @@ tr:hover {
     margin-bottom: 16px;
     }
   .fruit-report-title {
-    margin-bottom: -90px !important;
+    margin-bottom: 0 !important;
   }
-
   .labour-report-title {
-    margin-bottom: -50px !important;
+    margin-bottom: 0 !important;
   }
 }
 
-
-/* Specific styles for fruit report title */
-.fruit-report-title {
-  margin-bottom: -70px !important;
+.reports-container {
+  gap: 0 !important;
+  padding-top: 0 !important;
 }
 
-/* Specific styles for expense report title */
-.expense-report-title {
-  margin-bottom: 2px !important;
-}
-
-
-/* Specific styles for labour report title */
+.fruit-report-title,
+.expense-report-title,
 .labour-report-title {
-  margin-bottom: 2px !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
 nav .logout-button {

@@ -58,7 +58,7 @@ const ExpenseReportForm = () => {
     const [category, setCategory] = useState('');
 
     const fetchExpenses = async () => {
-        const response = await fetch('/api/users/expenseReport');
+        const response = await fetch('/api/users/expenseReport', { credentials: 'include' });
         if (response.ok) {
             const data: Expense[] = await response.json();
             setExpenses(data);

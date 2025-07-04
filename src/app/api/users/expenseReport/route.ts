@@ -1,6 +1,9 @@
 import connect from "@/dbConfig/dbConfig";
 import Expense from "@/models/expense";
 import { NextRequest, NextResponse } from "next/server";
+import { getIronSession } from "iron-session";
+import { sessionOptions } from "@/lib";
+import { cookies } from "next/headers";
 
 // Ensure the database is connected
 connect();
@@ -9,12 +12,13 @@ connect();
 // GET: Fetch all expenses
 export async function GET(request: NextRequest) {
   try {
-    const expenses = await Expense.find(); // Fetch all expenses from the database
-    console.log("Fetched Expenses:", expenses);
-
-    return NextResponse.json(expenses); // Return the list of expenses as JSON
+    const session = await getIronSession(cookies(), sessionOptions) as any;
+    if (!session.userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    const expenses = await Expense.find({ userId: session.userId });
+    return NextResponse.json(expenses);
   } catch (error: any) {
-    console.error("Error fetching expenses:", error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

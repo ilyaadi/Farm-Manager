@@ -47,7 +47,7 @@ const LabourReportForm = () => {
 
     const fetchLabours = async () => {
         try {
-            const response = await fetch('/api/users/labourReport');
+            const response = await fetch('/api/users/labourReport', { credentials: 'include' });
             if (response.ok) {
                 const data = await response.json();
                 setLabours(data);

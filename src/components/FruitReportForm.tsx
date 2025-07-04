@@ -58,7 +58,7 @@ const FruitReportForm = () => {
     const [collumn, setCollumn] = useState('');
 
     const fetchFruit = async () => {
-        const response = await fetch('/api/users/fruitReport');
+        const response = await fetch('/api/users/fruitReport', { credentials: 'include' });
         if (response.ok) {
             const data: Fruit[] = await response.json();
             setFruit(data);
