@@ -50,6 +50,10 @@
                     |-- route.ts
                 |-- signup
                     |-- route.ts
+                |-- verifyEmail
+                    |-- route.ts
+                |-- verifyOtp
+                    |-- route.ts
         |-- expenseEdit
             |-- [id]
                 |-- page.tsx
@@ -101,6 +105,8 @@
         |-- dbConfig.ts
     |-- helpers
         |-- getDataFromToken.ts
+        |-- requireUser.ts
+        |-- sendEmail.ts
     |-- images
         |-- DragonFarm.jpeg
     |-- jwtTokenControl.js

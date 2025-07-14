@@ -3,6 +3,8 @@ import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { sendVerificationEmail } from '@/helpers/sendEmail';
+import crypto from 'crypto';
 
 connect();
 
@@ -23,42 +25,51 @@ export async function POST(request: NextRequest) {
         const salt = await bcryptjs.genSalt(10);
         const hashedPassword = await bcryptjs.hash(password, salt);
 
-        // Create new user
-        const newUser = new User({
+        // Generate verification token and expiry
+        const verificationToken = jwt.sign({ email }, process.env.TOKEN_SECRET!, { expiresIn: '1h' });
+        const verificationTokenExpiry = new Date(Date.now() + 3600000); // 1 hour from now
+
+        // Generate OTP (6 digits)
+        const otp = crypto.randomInt(100000, 999999).toString();
+        const otpExpiry = new Date(Date.now() + 600000); // 10 minutes from now
+
+        // Create temporary user
+        const tempUser = new User({
             username,
             email,
             password: hashedPassword,
+            verifyToken: verificationToken,
+            verifyTokenExpiry: verificationTokenExpiry,
+            otp: otp,
+            otpExpiry: otpExpiry,
+            isVerified: false
         });
 
-        // Save user to the database
-        const savedUser = await newUser.save();
-        console.log("Saved user:", savedUser);
+        // Save temporary user to the database
+        const savedTempUser = await tempUser.save();
+        console.log("Saved temporary user:", savedTempUser);
 
-        // Generate JWT token
-        const tokenData = {
-            id: savedUser._id,
-            username: savedUser.username,
-            email: savedUser.email,
-        };
-        const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, { expiresIn: "1d" });
-
-        // Prepare response with the token set in cookies
-        const response = NextResponse.json({
-            message: "User created successfully",
-            success: true,
-            userId: savedUser._id,
-        });
-
-        // Set the token as an HTTP-only cookie
-        response.cookies.set("token", token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production", // Ensure the cookie is secure in production
-            sameSite: "strict",
-            path: "/",
-            maxAge: 24 * 60 * 60, // 1 day
-        });
-
-        return response;
+        try {
+            // Send verification email with OTP
+            await sendVerificationEmail(email, verificationToken, otp);
+            
+            // Return success response without setting cookies
+            return NextResponse.json({
+                message: "Verification code sent to your email",
+                success: true,
+                email: email,
+                requiresVerification: true
+            });
+        } catch (emailError: any) {
+            console.error("Error sending verification email:", emailError);
+            
+            // Delete the user if email sending fails
+            await User.findByIdAndDelete(savedTempUser._id);
+            
+            return NextResponse.json({ 
+                error: "Failed to send verification email. Please try again later." 
+            }, { status: 500 });
+        }
     } catch (error: any) {
         console.error("Error in user registration:", error);
         return NextResponse.json({ error: error.message }, { status: 500 });

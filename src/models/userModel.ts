@@ -26,6 +26,8 @@ const userSchema = new Schema({
  
     verifyToken: String,
     verifyTokenExpiry: Date,
+    otp: String,
+    otpExpiry: Date,
 });
 
 const User = models.User || model("User", userSchema);
