@@ -28,6 +28,20 @@ const userSchema = new Schema({
     verifyTokenExpiry: Date,
     otp: String,
     otpExpiry: Date,
+    resetPasswordOtp: {
+        type: String,
+        default: null
+    },
+    resetPasswordOtpExpiry: {
+        type: Date,
+        default: null
+    }
+});
+
+// Add a pre-save hook to log what's being saved
+userSchema.pre('save', function(next) {
+    console.log(`Pre-save hook - User: ${this._id}, resetPasswordOtp: ${this.resetPasswordOtp}`);
+    next();
 });
 
 const User = models.User || model("User", userSchema);

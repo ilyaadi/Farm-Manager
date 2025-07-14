@@ -2,6 +2,7 @@
 
 import { login } from "@/actions";
 import { useFormState } from "react-dom";
+import Link from "next/link";
 
 const LoginForm = () => {
     const [state, formAction] = useFormState<any, FormData>(login, undefined);
@@ -14,6 +15,11 @@ const LoginForm = () => {
             <input type="password" name="password" required placeholder="password"/>
             <button className="submit-button">Login</button>
             {state?.error && <p>{state.error}</p>}
+            <div className="mt-2 text-center">
+              <Link href="/forgot-password" className="forgot-password-link">
+                Forgot password?
+              </Link>
+            </div>
           </div>
         </form>
     );

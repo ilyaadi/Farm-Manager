@@ -52,6 +52,24 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Add this after the existing link styles */
+.forgot-password-link {
+  color: #e6e97a;
+  font-size: 12px;
+  padding: 4px 8px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+  background: none;
+}
+
+.forgot-password-link:hover {
+  color: #fff;
+  text-decoration: underline;
+  background: none;
+}
+
 /* Navbar */
 nav {
   position: sticky;
