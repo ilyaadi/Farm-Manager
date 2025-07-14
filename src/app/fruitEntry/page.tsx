@@ -11,7 +11,7 @@ const FruitEntry = async () => {
 
   return (
     <div className="Page-Title">
-      <h2>Enter Your Fruit </h2>
+      <h2>Enter Your Produce </h2>
       <FruitEntryForm />
     </div>
   );

@@ -14,6 +14,15 @@ body {
   min-height: 100vh;
 }
 
+p {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color: #d4d4d4;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
 /* Typography */
 h1, .Page-Title, .title {
   font-family: 'Playfair Display', serif;
@@ -29,9 +38,6 @@ h2, h3, th {
   color: #e6e97a;
   font-weight: 700;
   text-align: center;
-}
-.Page-Title h2 {
-  margin-bottom: 0;
 }
 
 /* Links */
@@ -52,9 +58,8 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Add this after the existing link styles */
 .forgot-password-link {
-  color: #e6e97a;
+  color: #2b93d3;
   font-size: 12px;
   padding: 4px 8px;
   font-weight: 400;
@@ -488,11 +493,8 @@ tr:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 430px) {
-
-}
 @media (max-width: 767px) {
-    nav {
+  nav {
     max-width: 98vw;
     padding: 0 8px;
     gap: 8px;
@@ -654,6 +656,13 @@ tr:hover {
   .labour-report-title {
     margin-bottom: 0 !important;
   }
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 16px;
+    max-width: 100%;
+  }
 }
 
 .reports-container {
@@ -676,4 +685,41 @@ nav .logout-button {
   margin-bottom: 5px;
   margin-left: 4px !important;
   margin-right: 0 !important;
+}
+
+/* Responsive adjustments for Forgot Password and Reset Password pages */
+@media (max-width: 767px) {
+  .container {
+    max-width: 90%;
+    padding: 16px;
+  }
+  h1, .title {
+    font-size: 2rem;
+  }
+  button, input {
+    font-size: 1rem;
+  }
+}
+
+h1, .title {
+  color: #e6e97a;
+  margin-bottom: 16px;
+}
+
+button {
+  background-color: #b6e388;
+  color: #232526;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #e6e97a;
+  transform: scale(1.05);
+}
+
+input {
+  padding: 16px;
+  border: 2px solid #550f85;
+  margin-bottom: 20px;
 }

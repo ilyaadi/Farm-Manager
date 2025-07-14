@@ -51,12 +51,12 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="container">
-        <h1 className="title">Forgot Password</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="container max-w-lg p-8 bg-white shadow-md rounded-lg">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">Forgot Password</h1>
         
-        <form onSubmit={handleSubmit}>
-          <p className="mb-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <p className="text-gray-600 mb-4">
             Enter your email address and we'll send you a verification code to reset your password.
           </p>
           <input
@@ -65,21 +65,22 @@ export default function ForgotPasswordPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
             placeholder="Email address"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           <button
-            className="submit-button"
+            className="w-full py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
             type="submit"
             disabled={loading}
           >
             {loading ? "Sending..." : "Send Reset Instructions"}
           </button>
           {message && (
-            <p className={isError ? "error-message" : "success-message"}>
+            <p className={isError ? "text-red-500" : "text-green-500"}>
               {message}
             </p>
           )}
           <div className="mt-4 text-center">
-            <Link href="/login" className="forgot-password-link">
+            <Link href="/login" className="text-blue-500 hover:underline">
               Back to login
             </Link>
           </div>
