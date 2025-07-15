@@ -33,6 +33,8 @@
                     |-- route.ts
                 |-- expenseReport
                     |-- route.ts
+                |-- forgot-password
+                    |-- route.ts
                 |-- fruitEdit
                     |-- route.ts
                 |-- fruitEntry
@@ -48,6 +50,8 @@
                     |-- route.ts
                 |-- login
                     |-- route.ts
+                |-- reset-password
+                    |-- route.ts
                 |-- signup
                     |-- route.ts
                 |-- verifyEmail
@@ -62,6 +66,8 @@
         |-- expenseReport
             |-- page.tsx
         |-- favicon.ico
+        |-- forgot-password
+            |-- page.tsx
         |-- fruitEdit
             |-- [id]
                 |-- page.tsx
@@ -83,6 +89,8 @@
         |-- main
             |-- page.tsx
         |-- page.tsx
+        |-- reset-password
+            |-- page.tsx
         |-- signup
             |-- page.tsx
     |-- components
@@ -100,6 +108,7 @@
         |-- logoutForm.tsx
         |-- navbar.tsx
         |-- navbarClient.tsx
+        |-- ResetPasswordForm.tsx
         |-- signupForm.tsx
     |-- dbConfig
         |-- dbConfig.ts

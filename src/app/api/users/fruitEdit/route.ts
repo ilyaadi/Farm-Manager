@@ -1,43 +1,42 @@
 import Fruit from "@/models/fruit";
-import { NextRequest, NextResponse } from "next/server";
-import { requireUser } from "@/helpers/requireUser";
+import { NextResponse } from "next/server";
 
-// Fetch an expense by ID
-export async function GET(request: NextRequest) {
+// Fetch a fruit by ID
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get("id");
+
+  if (!id) {
+    return NextResponse.json({ error: "Fruit ID is required" }, { status: 400 });
+  }
+
   try {
-    const userId = requireUser(request);
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
-    if (!id) {
-      return NextResponse.json({ error: "Fruit ID is required" }, { status: 400 });
-    }
-    const fruit = await Fruit.findOne({ _id: id, userId });
+    const fruit = await Fruit.findById(id);
     if (!fruit) {
       return NextResponse.json({ error: "Fruit not found" }, { status: 404 });
     }
     return NextResponse.json(fruit);
   } catch (error: any) {
-    if (error.message === "Unauthorized") {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
-// Update an expense by ID
-export async function PUT(request: NextRequest) {
+// Update a fruit by ID
+export async function PUT(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get("id");
+
+  if (!id) {
+    return NextResponse.json({ error: "Fruit ID is required" }, { status: 400 });
+  }
+
+  const body = await request.json();
+  const { date, count, row, collumn, message } = body;
+
   try {
-    const userId = requireUser(request);
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
-    if (!id) {
-      return NextResponse.json({ error: "Fruit ID is required" }, { status: 400 });
-    }
-    const body = await request.json();
-    const { date, count, row, collumn, description } = body;
-    const updatedFruit = await Fruit.findOneAndUpdate(
-      { _id: id, userId },
-      { date, count, row, collumn, description },
+    const updatedFruit = await Fruit.findByIdAndUpdate(
+      id,
+      { date, count, row, collumn, message },
       { new: true }
     );
     if (!updatedFruit) {
@@ -45,31 +44,26 @@ export async function PUT(request: NextRequest) {
     }
     return NextResponse.json({ success: "Fruit updated successfully", updatedFruit });
   } catch (error: any) {
-    if (error.message === "Unauthorized") {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
 
-// Delete an expense by ID
-export async function DELETE(request: NextRequest) {
+// Delete a fruit by ID
+export async function DELETE(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get("id");
+
+  if (!id) {
+    return NextResponse.json({ error: "Fruit ID is required" }, { status: 400 });
+  }
+
   try {
-    const userId = requireUser(request);
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
-    if (!id) {
-      return NextResponse.json({ error: "Fruit ID is required" }, { status: 400 });
-    }
-    const deletedFruit = await Fruit.findOneAndDelete({ _id: id, userId });
+    const deletedFruit = await Fruit.findByIdAndDelete(id);
     if (!deletedFruit) {
       return NextResponse.json({ error: "Fruit not found" }, { status: 404 });
     }
     return NextResponse.json({ success: "Fruit deleted successfully." }, { status: 200 });
   } catch (error: any) {
-    if (error.message === "Unauthorized") {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
