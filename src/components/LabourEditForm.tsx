@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const LabourEditForm = ({ labourId }: { labourId: string }) => {
     const [labour, setLabour] = useState<any>(null);
@@ -17,7 +17,7 @@ const LabourEditForm = ({ labourId }: { labourId: string }) => {
     const shiftsOptions = ["half", "full"]; // Shifts as per your schema
 
     // Fetch existing labour data based on the labourId
-    const fetchLabour = async () => {
+    const fetchLabour = useCallback(async () => {
         try {
             const response = await fetch(`/api/users/labourEdit/${labourId}`);
             if (response.ok) {
@@ -34,11 +34,11 @@ const LabourEditForm = ({ labourId }: { labourId: string }) => {
             setError("Failed to fetch labour data.");
             console.error("Fetch error:", error);
         }
-    };
+    }, [labourId]);
 
     useEffect(() => {
         fetchLabour(); // Fetch labour data when component mounts
-    }, [labourId]);
+    }, [fetchLabour]);
 
     // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {

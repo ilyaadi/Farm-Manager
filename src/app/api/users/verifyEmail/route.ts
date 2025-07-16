@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import connect from '@/dbConfig/dbConfig';
 import User from '@/models/userModel';
 import { NextRequest, NextResponse } from 'next/server';
@@ -7,8 +8,7 @@ connect();
 
 export async function GET(request: NextRequest) {
     try {
-        const { searchParams } = new URL(request.url);
-        const token = searchParams.get('token');
+        const token = request.nextUrl.searchParams.get('token');
 
         if (!token) {
             return NextResponse.json({ error: 'Verification token is missing' }, { status: 400 });
