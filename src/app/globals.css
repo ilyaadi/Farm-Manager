@@ -491,7 +491,14 @@ tr:hover {
   align-items: center;
   justify-content: center;
 }
-
+.form-label {
+  font-size: 15px;
+  margin-bottom: 2px;
+  font-family: 'Work Sans', Arial, sans-serif;
+  font-weight: 1000;
+  text-align: left;
+  display: block;
+}
 /* Responsive Design */
 @media (max-width: 767px) {
   nav {
@@ -614,6 +621,7 @@ tr:hover {
     width: 100%;
     text-align: center;
   }
+
   .filter-container .input-field,
   .filter-container select,
   .filter-container input[type="date"] {

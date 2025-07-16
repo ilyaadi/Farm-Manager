@@ -95,7 +95,7 @@ const LabourEditForm = ({ labourId }: { labourId: string }) => {
     return (
         <form >
             <div className="container">
-                <label htmlFor="name">Name</label>
+                <label className="form-label">Name</label>
                 <select
                     id="name"
                     value={name}
@@ -109,7 +109,7 @@ const LabourEditForm = ({ labourId }: { labourId: string }) => {
                 </select>
 
 
-                <label htmlFor="shift">Shift</label>
+                <label className="form-label">Shift</label>
                 <select
                     id="shift"
                     value={shift}
@@ -123,7 +123,7 @@ const LabourEditForm = ({ labourId }: { labourId: string }) => {
                     ))}
                 </select>
 
-                <label htmlFor="date">Date</label>
+                <label className="form-label">Date</label>
                 <input
                     type="date"
                     id="date"
@@ -138,7 +138,7 @@ const LabourEditForm = ({ labourId }: { labourId: string }) => {
                     Save Changes
                 </button>
                 <button
-                    className="submit-button"
+                    className="delete-button"
                     onClick={handleDelete}>
                     Delete Record
                 </button>

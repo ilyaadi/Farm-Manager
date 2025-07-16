@@ -84,98 +84,72 @@ const FruitEditForm = ({ fruitId }: { fruitId: string }) => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+ if (loading) return <p>Loading...</p>;
+if (error) return <p>Error: {error}</p>;
 
-  return (
+return (
+  <form onSubmit={handleSubmit} className="container">
+    <label className="form-label">Date</label>
+    <input
+      type="date"
+      name="date"
+      value={formData.date}
+      onChange={handleChange}
+      required
+    />
 
-      <form onSubmit={handleSubmit}>
-      <div className="container">
-        <label>Date</label>
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-        />
+    <label className="form-label">Count</label>
+    <input
+      type="number"
+      name="count"
+      value={formData.count}
+      onChange={handleChange}
+      required
+    />
 
-        <label>Count`</label>
-        <input
-          type="number"
-          name="count"
-          value={formData.count}
-          onChange={handleChange}
-          required
-        />
+    <label className="form-label">Row</label>
+    <select
+      name="row"
+      value={formData.row}
+      onChange={handleChange}
+      required
+    >
+      <option value="" disabled hidden>Row</option>
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+      <option value="d">D</option>
+    </select>
 
-        <label>Row</label>
-        <select
-          name="row"
-          value={formData.row}
-          onChange={handleChange}
-          required
-        >
-          <option value="" disabled hidden>Row</option>
-                <option value="a">A</option>
-                <option value="b">B</option>
-                <option value="c">C</option>
-                <option value="d">D</option>
-        </select>
+    <label className="form-label">Collumn</label>
+    <select
+      name="collumn"
+      value={formData.collumn}
+      onChange={handleChange}
+      required
+    >
+      <option value="" disabled hidden>Collumn</option>
+      {[...Array(24)].map((_, i) => (
+        <option key={i + 1} value={i + 1}>{i + 1}</option>
+      ))}
+    </select>
 
-        <label>Collumn</label>
-        <select
-          name="collumn"
-          value={formData.collumn}
-          onChange={handleChange}
-          required
-        >
-          <option value="" disabled hidden>Collumn</option>
-                <option value="" disabled hidden>Collumn</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-        </select>
+    <label className="form-label">Message</label>
+    <input
+      type="text"
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+      required
+    />
 
-        <label>Message</label>
-        <input
-          type="text"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        />
-
-        <button className="submit-button">Update Fruit</button>
-        <button className="submit-button" onClick={handleDelete}>
-          Delete
-        </button>
-        </div>
-        {error ? <p className="error-message">{error}</p> : <p className="success-message">{success}</p>}
-      </form>
-
-  );
+    <button className="submit-button">Update Fruit</button>
+    <button type="button" className="delete-button" onClick={handleDelete}>
+      Delete
+    </button>
+    {error ? <p className="error-message">{error}</p> : <p className="success-message">{success}</p>}
+  </form>
+);
 };
 
 export default FruitEditForm;

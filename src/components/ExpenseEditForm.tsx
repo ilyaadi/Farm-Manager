@@ -90,7 +90,7 @@ const ExpenseEditForm = ({ expenseId }: { expenseId: string }) => {
 
       <form onSubmit={handleSubmit}>
       <div className="container">
-        <label>Date</label>
+        <label className="form-label">Date</label>
         <input
           type="date"
           name="date"
@@ -99,7 +99,7 @@ const ExpenseEditForm = ({ expenseId }: { expenseId: string }) => {
           required
         />
 
-        <label>Amount</label>
+        <label className="form-label">Amount</label>
         <input
           type="number"
           name="amount"
@@ -108,7 +108,7 @@ const ExpenseEditForm = ({ expenseId }: { expenseId: string }) => {
           required
         />
 
-        <label>Category</label>
+        <label className="form-label">Category</label>
         <select
           name="category"
           value={formData.category}
@@ -119,7 +119,7 @@ const ExpenseEditForm = ({ expenseId }: { expenseId: string }) => {
           <option value="Expense">Expense</option>
         </select>
 
-        <label>Description</label>
+        <label className="form-label">Description</label>
         <input
           type="text"
           name="description"
@@ -129,7 +129,7 @@ const ExpenseEditForm = ({ expenseId }: { expenseId: string }) => {
         />
 
         <button className="submit-button">Update Expense</button>
-        <button className="submit-button" onClick={handleDelete}>
+        <button className="delete-button" onClick={handleDelete}>
           Delete
         </button>
         </div>
